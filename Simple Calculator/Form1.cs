@@ -19,15 +19,6 @@ namespace Simple_Calculator
         Double fnum, snum, result;
         String opration;
 
-      
-           // StringBuilder bulder = new StringBuilder();
-
-       
-           /* bulder.Append(fnum);
-            String value = Convert.ToString(bulder);
-            num_disp.Text = value;*/
-       
-
         private void one_Click(object sender, EventArgs e)
         {
             int one = 1;
@@ -94,25 +85,31 @@ namespace Simple_Calculator
 
         private void ngtv_Click(object sender, EventArgs e)
         {
-           /* String min = num_disp.Text.Substring(0,1);
-            if (min == "-")
-            {
-                String Enum =num_disp.Text.Substring(1);
-                num_disp.Text = Enum;
+            /* String min = num_disp.Text.Substring(0,1);
+             if (min == "-")
+             {
+                 String Enum =num_disp.Text.Substring(1);
+                 num_disp.Text = Enum;
+             }
+             else {
+                 String Enum = "-"+num_disp.Text ;
+                 num_disp.Text = Enum;
+             }*/
+            if (String.Compare(num_disp.Text,"") == 0){}
+            else{
+                String mins = num_disp.Text;
+                double ops = Double.Parse(mins);
+                ops = ops * (-1);
+                num_disp.Text = Convert.ToString(ops);
             }
-            else {
-                String Enum = "-"+num_disp.Text ;
-                num_disp.Text = Enum;
-            }*/
-            String mins = num_disp.Text;
-            double ops = Double.Parse(mins);
-            ops = ops * (-1);
-            num_disp.Text = Convert.ToString(ops);
             
         }
 
         private void dot_Click(object sender, EventArgs e)
         {
+            if (num_disp.Text == "") {
+                num_disp.Text = "0";
+            }
             int ch = num_disp.Text.IndexOf(".");
             if (ch == -1)
             {
@@ -135,90 +132,203 @@ namespace Simple_Calculator
 
         private void clear_Click(object sender, EventArgs e)
         {
+            num_disp.ForeColor = Color.Black;
             num_disp.Text="";
             calc_screen.Text = "";
         }
 
         private void add_Click(object sender, EventArgs e)
         {
-            String Enum = num_disp.Text + "+";
-            String num = num_disp.Text;
-            num_disp.Text = Enum;
-            fnum = double.Parse(num);
-            opration = "+";
+            if (String.Compare(num_disp.Text,"")==0)
+            {
+                num_disp.Text = "Error";
+                num_disp.ForeColor = Color.Red;
+            }else if (String.Compare(num_disp.Text,"Error")==0)
+            {
+                num_disp.Text = "Error";
+                num_disp.ForeColor = Color.Red;
+            }
+            else if (calc_screen.Text !="")
+            {
+                String Enum = calc_screen.Text + "+";
+                String num = calc_screen.Text;
+                num_disp.Text = Enum;
+                fnum = double.Parse(num);
+                opration = "+";
+                calc_screen.Text = "";
+            }
+            else {
+                num_disp.ForeColor = Color.Black;
+                String Enum = num_disp.Text + "+";
+                String num = num_disp.Text;
+                num_disp.Text = Enum;
+                fnum = double.Parse(num);
+                opration = "+";
+            }
+           
         }
         private void mins_Click(object sender, EventArgs e)
         {
-            String Enum = num_disp.Text + "-";
-            String num = num_disp.Text;
-            num_disp.Text = Enum;
-            fnum = double.Parse(num);
-            opration = "-";
+            if (String.Compare(num_disp.Text, "") == 0)
+            {
+                num_disp.Text = "Error";
+                num_disp.ForeColor = Color.Red;
+            }
+            else if (String.Compare(num_disp.Text, "Error") == 0)
+            {
+                num_disp.Text = "Error";
+                num_disp.ForeColor = Color.Red;
+            }
+            else if (calc_screen.Text !="")
+            {
+                String Enum = calc_screen.Text + "-";
+                String num = calc_screen.Text;
+                num_disp.Text = Enum;
+                fnum = double.Parse(num);
+                opration = "-";
+                calc_screen.Text = "";
+            }
+            else
+            {
+                String Enum = num_disp.Text + "-";
+                String num = num_disp.Text;
+                num_disp.Text = Enum;
+                fnum = double.Parse(num);
+                opration = "-";
+            }
         }
 
         private void mult_Click(object sender, EventArgs e)
         {
-            String Enum = num_disp.Text + "×";
-            String num = num_disp.Text;
-            num_disp.Text = Enum;
-            fnum = double.Parse(num);
-            opration = "*";
+            if (String.Compare(num_disp.Text, "") == 0)
+            {
+                num_disp.Text = "Error";
+                num_disp.ForeColor = Color.Red;
+            }
+            else if (String.Compare(num_disp.Text, "Error") == 0)
+            {
+                num_disp.Text = "Error";
+                num_disp.ForeColor = Color.Red;
+            }
+            else if (calc_screen.Text !="")
+            {
+                String Enum = calc_screen.Text + "×";
+                String num = calc_screen.Text;
+                num_disp.Text = Enum;
+                fnum = double.Parse(num);
+                opration = "*";
+                calc_screen.Text = "";
+            }
+            else
+            {
+                String Enum = num_disp.Text + "×";
+                String num = num_disp.Text;
+                num_disp.Text = Enum;
+                fnum = double.Parse(num);
+                opration = "*";
+            }
         }
 
         private void div_Click(object sender, EventArgs e)
         {
-            String Enum = num_disp.Text + "/";
-            String num = num_disp.Text;
-            num_disp.Text = Enum;
-            fnum = double.Parse(num);
-            opration = "/";
+            if (String.Compare(num_disp.Text, "") == 0)
+            {
+                num_disp.Text = "Error";
+                num_disp.ForeColor = Color.Red;
+            }
+            else if (String.Compare(num_disp.Text, "Error") == 0)
+            {
+                num_disp.Text = "Error";
+                num_disp.ForeColor = Color.Red;
+            }
+            else if (calc_screen.Text != "")
+            {
+                String Enum = calc_screen.Text + "/";
+                String num = calc_screen.Text;
+                num_disp.Text = Enum;
+                fnum = double.Parse(num);
+                opration = "/";
+                calc_screen.Text = "";
+            }
+            else
+            {
+                String Enum = num_disp.Text + "/";
+                String num = num_disp.Text;
+                num_disp.Text = Enum;
+                fnum = double.Parse(num);
+                opration = "/";
+            }
         }
 
         private void remender_Click(object sender, EventArgs e)
         {
-            String Enum = num_disp.Text + "%";
-            String num = num_disp.Text;
-            num_disp.Text = Enum;
-            fnum = double.Parse(num);
-            opration = "%";
+            if (String.Compare(num_disp.Text, "") == 0)
+            {
+                num_disp.Text = "Error";
+                num_disp.ForeColor = Color.Red;
+            }
+            else if (String.Compare(num_disp.Text, "Error") == 0)
+            {
+                num_disp.Text = "Error";
+                num_disp.ForeColor = Color.Red;
+            }
+            else if (calc_screen.Text !="") {
+                String Enum = calc_screen.Text + "%";
+                String num = calc_screen.Text;
+                num_disp.Text = Enum;
+                fnum = double.Parse(num);
+                opration = "%";
+                calc_screen.Text = "";
+            }
+            else
+            {
+                String Enum = num_disp.Text + "%";
+                String num = num_disp.Text;
+                num_disp.Text = Enum;
+                fnum = double.Parse(num);
+                opration = "%";
+            }
         }
 
         private void equal_Click(object sender, EventArgs e)
         {
-           
-            if (opration == "*") {
-                opration = "×";
-            }
-            int div= num_disp.Text.IndexOf(opration);
-            String num = num_disp.Text.Substring(div+1);
-            //snum = Convert.ToDouble(nums);
-
-            snum = Convert.ToDouble(Convert.ToString(num));
-
-            if (String.Compare(opration, "+") == 0) {
-                result = fnum + snum;
-            }
-            else if (String.Compare(opration, "-") == 0)
+            if (String.Compare(num_disp.Text, "") == 0)
+            { }
+            else
             {
-                result = fnum - snum;
-            }
-            else if (String.Compare(opration, "×") == 0)
-            {
-                result = fnum * snum;
-            }
-            else if (String.Compare(opration, "/") == 0)
-            {
-                result = fnum / snum;
-            }
-            else if (String.Compare(opration, "%") == 0)
-            {
-                result = fnum % snum;
-            }
+                if (opration == "*")
+                {
+                    opration = "×";
+                }
+                int div = num_disp.Text.IndexOf(opration);
+                String num = num_disp.Text.Substring(div + 1);
+                //snum = Convert.ToDouble(nums);
 
+                snum = Convert.ToDouble(Convert.ToString(num));
 
-
-
+                if (String.Compare(opration, "+") == 0)
+                {
+                    result = fnum + snum;
+                }
+                else if (String.Compare(opration, "-") == 0)
+                {
+                    result = fnum - snum;
+                }
+                else if (String.Compare(opration, "×") == 0)
+                {
+                    result = fnum * snum;
+                }
+                else if (String.Compare(opration, "/") == 0)
+                {
+                    result = fnum / snum;
+                }
+                else if (String.Compare(opration, "%") == 0)
+                {
+                    result = fnum % snum;
+                }
+            
             calc_screen.Text = Convert.ToString(result);
+        }
         }
 
 

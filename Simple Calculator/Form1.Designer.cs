@@ -296,7 +296,7 @@
             this.ngtv.Name = "ngtv";
             this.ngtv.Size = new System.Drawing.Size(62, 40);
             this.ngtv.TabIndex = 16;
-            this.ngtv.Text = "+,-";
+            this.ngtv.Text = "±";
             this.ngtv.UseVisualStyleBackColor = true;
             this.ngtv.Click += new System.EventHandler(this.ngtv_Click);
             // 
@@ -322,7 +322,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 364);
+            this.ClientSize = new System.Drawing.Size(284, 365);
             this.Controls.Add(this.num_disp);
             this.Controls.Add(this.equal);
             this.Controls.Add(this.dot);
@@ -344,6 +344,8 @@
             this.Controls.Add(this.remender);
             this.Controls.Add(this.clear);
             this.Controls.Add(this.calc_screen);
+            this.MaximumSize = new System.Drawing.Size(300, 400);
+            this.MinimumSize = new System.Drawing.Size(300, 400);
             this.Name = "Form1";
             this.Text = "Simple Calculator";
             this.ResumeLayout(false);
